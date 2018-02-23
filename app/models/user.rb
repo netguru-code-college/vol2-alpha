@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :opinions, through: :users_opinions
   has_many :speakers
   has_many :languages, through: :speakers
+  validates :first_name, :last_name, :email, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

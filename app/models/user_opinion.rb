@@ -1,4 +1,4 @@
-class UsersOpinion < ApplicationRecord
+class UserOpinion < ApplicationRecord
   belongs_to :user
   belongs_to :opinion
 end
