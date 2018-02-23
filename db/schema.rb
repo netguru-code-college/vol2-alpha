@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223125127) do
+ActiveRecord::Schema.define(version: 20180223141800) do
 
   create_table "languages", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "levels", force: :cascade do |t|
-    t.integer "level"
+    t.integer "level", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20180223125127) do
   end
 
   create_table "opinions", force: :cascade do |t|
-    t.integer "rating"
-    t.text "content"
+    t.integer "rating", null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20180223125127) do
     t.datetime "updated_at", null: false
     t.index ["language_id"], name: "index_speakers_on_language_id"
     t.index ["user_id"], name: "index_speakers_on_user_id"
-   end
+  end
 
   create_table "technologies", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
+    t.string "name", null: false
+    t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20180223125127) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.text "description"
     t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
