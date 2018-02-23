@@ -28,11 +28,13 @@ ActiveRecord::Schema.define(version: 20180223125127) do
     t.index ["user_id"], name: "index_levels_on_user_id"
   end
 
-  create_table "opinions", force: :cascade do |t|
-    t.integer "rating"
-    t.text "content"
+  create_table "speakers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "language_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_speakers_on_language_id"
+    t.index ["user_id"], name: "index_speakers_on_user_id"
   end
 
   create_table "technologies", force: :cascade do |t|
