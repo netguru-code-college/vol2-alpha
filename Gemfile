@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
+  gem 'pry-rails', '~> 0.3.6'
   gem 'rspec', '~> 3.7'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'selenium-webdriver'
