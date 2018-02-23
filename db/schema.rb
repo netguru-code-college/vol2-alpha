@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223105819) do
+ActiveRecord::Schema.define(version: 20180223123541) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 20180223105819) do
 
   create_table "levels", force: :cascade do |t|
     t.integer "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "languages", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,4 +58,13 @@ ActiveRecord::Schema.define(version: 20180223105819) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  create_table "users_opinions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "owner_id"
+    t.integer "opinion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
