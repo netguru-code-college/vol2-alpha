@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180224125645) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20180224125645) do
     t.integer "level", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "technology_id"
+    t.bigint "user_id"
+    t.bigint "technology_id"
     t.index ["technology_id"], name: "index_levels_on_technology_id"
     t.index ["user_id"], name: "index_levels_on_user_id"
   end
@@ -33,15 +36,15 @@ ActiveRecord::Schema.define(version: 20180224125645) do
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "author_id"
+    t.bigint "user_id"
+    t.bigint "author_id"
     t.index ["author_id"], name: "index_opinions_on_author_id"
     t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
   create_table "speakers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "language_id"
+    t.bigint "user_id"
+    t.bigint "language_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["language_id"], name: "index_speakers_on_language_id"
@@ -76,4 +79,6 @@ ActiveRecord::Schema.define(version: 20180224125645) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "opinions", "users"
+  add_foreign_key "opinions", "users", column: "author_id"
 end
