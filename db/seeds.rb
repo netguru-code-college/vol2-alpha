@@ -1,7 +1,86 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+category_attributes = [
+  { name: "Language" },
+  { name: "Framework" },
+  { name: "Library" }
+]
+
+category_attributes.each do |attributes|
+  Category.where(attributes).first_or_create
+end
+
+technology_attributes = [
+  { name: "JavaScript", category: Category.first },
+  { name: "Ruby", category: Category.first },
+  { name: "Python", category: Category.first },
+  { name: "Java", category: Category.first },
+  { name: "C#", category: Category.first },
+  { name: "SQL", category: Category.first },
+  { name: "RoR", category: Category.second },
+  { name: "Django", category: Category.second },
+  { name: "Angular", category: Category.second },
+  { name: "Ember", category: Category.second },
+  { name: "Sails", category: Category.second },
+  { name: "jQuery", category: Category.third },
+  { name: "React", category: Category.third }
+]
+
+technology_attributes.each do |attributes|
+  Technology.where(attributes).first_or_create
+end
+
+language_attributes = [
+  { name: "English" },
+  { name: "Polish" },
+  { name: "Spanish" }
+]
+
+language_attributes.each do |attributes|
+  Language.where(attributes).first_or_create
+end
+
+test_password = "Testpass"
+
+if User.all.size < 20
+  20.times do
+    User.create(
+      email: Faker::Internet.email,
+      password: test_password,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      description: Faker::Lorem.paragraph(rand(10..20)),
+      location: "#{Faker::Address.city}, #{Faker::Address.country}"
+    )
+  end
+end
+
+# Add technologies to users
+available_technologies = Technology.all
+User.all.each do |user|
+  user.levels.destroy_all
+  available_technologies.sample(rand(0..5)).each do |technology|
+    user.levels.create(technology: technology, level: rand(0...4))
+  end
+end
+
+# Add languages to users
+available_languages = Language.all
+User.all.each do |user|
+  user.languages.destroy_all
+  available_languages.sample(rand(1..3)).each do |language|
+    user.speakers.create(language: language)
+  end
+end
+
+# Create user opinions
+Opinion.all.destroy_all
+all_users = User.all
+all_users.each do |user|
+  authors = all_users.reject { |author| author.id == user.id }
+  authors.sample(rand(0..7)).each do |author|
+    user.received_opinions.create(
+      rating: rand(1..5),
+      content: Faker::Lorem.paragraph(rand(10..15)),
+      author_id: author.id
+    )
+  end
+end
