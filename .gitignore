@@ -21,3 +21,4 @@ pickle-email-*.html
 .byebug_history
 /node_modules
 .DS_Store
+config/database.yml

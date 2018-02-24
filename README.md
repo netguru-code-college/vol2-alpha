@@ -9,4 +9,5 @@ Initial app version implies simple connection of two groups via either internal 
 ### Steps to setup:
 
 * `bundle install`
+* `cp config/database.yml.example config/database.yml` (extra for collaborators: type yes to overwrite your old file)
 * `rails db:setup` (this will create the database, load the schema and initialize it with the seed data)
