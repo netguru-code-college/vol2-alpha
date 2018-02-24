@@ -8,6 +8,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_speakers_on_language_id  (language_id)
+#  index_speakers_on_user_id      (user_id)
+#
 
 class Speaker < ApplicationRecord
   belongs_to :user

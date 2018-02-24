@@ -9,6 +9,11 @@
 #  user_id       :integer
 #  technology_id :integer
 #
+# Indexes
+#
+#  index_levels_on_technology_id  (technology_id)
+#  index_levels_on_user_id        (user_id)
+#
 
 class Level < ApplicationRecord
   belongs_to :user

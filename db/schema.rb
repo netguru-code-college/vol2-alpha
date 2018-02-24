@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224125645) do
+ActiveRecord::Schema.define(version: 20180224183621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
@@ -53,9 +59,10 @@ ActiveRecord::Schema.define(version: 20180224125645) do
 
   create_table "technologies", force: :cascade do |t|
     t.string "name", null: false
-    t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_technologies_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,4 +88,5 @@ ActiveRecord::Schema.define(version: 20180224125645) do
 
   add_foreign_key "opinions", "users"
   add_foreign_key "opinions", "users", column: "author_id"
+  add_foreign_key "technologies", "categories"
 end
