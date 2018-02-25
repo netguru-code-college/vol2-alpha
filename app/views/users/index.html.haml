@@ -3,11 +3,11 @@
 .container
   .row
     .col-md-8.offset-md-2.col-12
-      %h1#motto Find best technology mentors or boost your mentoring skills
+      %h1#motto= t("motto")
       = form_tag(root_path, method: "post") do
         .row.no-gutters
           .input-group.no-gutters
             .col-9
-              = text_field_tag :query, nil, placeholder: "Search for JavaScript, React in Poznan ...", class: "form-control"
+              = text_field_tag :query, nil, placeholder: t("search_hint"), class: "form-control"
             .col-3
-              = submit_tag "Search", class: "btn btn-danger form-control"
+              = submit_tag t("search"), class: "btn btn-danger form-control"
