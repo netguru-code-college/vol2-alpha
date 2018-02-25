@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.7'
 gem 'pg', '~> 1.0'
