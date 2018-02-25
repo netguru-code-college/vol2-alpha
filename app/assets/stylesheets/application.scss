@@ -15,7 +15,7 @@
 
 body {
   margin: 0;
-  background: #000;
+  background: #fff;
 }
 
 video {
@@ -28,16 +28,20 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('https://i.vimeocdn.com/video/580641619.jpg') no-repeat;
+  background: url('main_video_poster.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
 }
 
-@media screen and (max-width: 500px) {
-  div{width:70%;}
+#motto {
+  color: white;
+  margin-bottom: 45px;
 }
 
+.container{ margin-top: 200px; }
+.form-control{ padding: 15px; font-size: 20px; }
+
 @media screen and (max-device-width: 800px) {
-  html { background: url('https://i.vimeocdn.com/video/580641619.jpg') #000 no-repeat center center fixed; }
+  html { background: url('main_video_poster.jpg') #000 no-repeat center center fixed; }
   #bgvid { display: none; }
 }
