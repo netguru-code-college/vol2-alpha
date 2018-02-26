@@ -57,3 +57,16 @@ font-size: 50px;
 .grey {
   color: #555555;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F8F9FA;
+    height: 60px;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: inline-block;
+}
