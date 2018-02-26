@@ -23,6 +23,27 @@
             <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
           </li>
         </ul>
+
+      <%# TODO: add search bar that shows up in the navbar here %>
+
+      <% if user_signed_in? %>
+      <%# TODO: user avatar goes here when we implement it %>
+      <%= current_user.email %>
+      <% else %>
+      <%= link_to t(:sign_up), new_user_registration_path, class: "nav-item nav-link" %>
+      <%= link_to t(:login), new_user_session_path, class: "nav-item nav-link" %>
+      <% end %>
+
+      </div>
+    </nav>
+
+    <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
