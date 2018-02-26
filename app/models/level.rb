@@ -3,7 +3,7 @@
 # Table name: levels
 #
 #  id            :integer          not null, primary key
-#  level         :integer          not null
+#  level         :integer          default(0), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :integer
