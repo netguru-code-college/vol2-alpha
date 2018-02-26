@@ -5,10 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.0'
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'puma', '~> 3.7'
 gem 'pg', '~> 1.0'
+gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'rails', '~> 5.1.5'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'

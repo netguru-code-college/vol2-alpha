@@ -1,0 +1,10 @@
+.container
+  - if @found_users.present?
+    - @found_users.each do |user|
+      .card.mb-2
+        .card-body
+          %p= user.attributes
+          %p= user.technologies.inspect
+          %p= user.languages.inspect
+  - else
+    %h3= t("no_search_results")
