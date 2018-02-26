@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-8.offset-2
+      .progress
+        .progress-bar.bg-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "99", :role => "progressbar", :style => "width: 99%;"} 99%
+      = form_for @user, url: wizard_path do |f|
+        .card.bg-light
+          .card-body
+            .row
+              - @user.levels.each do |level|
+                .col-md-4
+                  .form-group
+                    = label_tag level.technology.name
+                    = select_tag("levels[#{level.id}]", options_for_select([0, 1, 2, 3], selected: level.level ), class: "custom-select")
+            .form-group
+              %h3= f.label(:languages, "Select spoken languages you could use for mentoring")
+              = f.select :language_ids, options_from_collection_for_select(@languages, :id, :name, { selected: @user.languages.map(&:id)}), {}, { class: "form-control", multiple: true }
+            .col-sm-6.offset-3
+              = f.submit "Save", type: "submit", class: "btn btn-lg btn-info btn-block"

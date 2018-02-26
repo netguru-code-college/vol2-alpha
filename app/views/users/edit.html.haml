@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-md-8.offset-2
+      = form_for @user do |f|
+        .card
+          .card-body
+            .form-row
+              .form-group.col-md-6
+                %h4= f.label :first_name
+                %p= f.text_field :first_name, class: "form-control"
+              .form-group.col-md-6
+                %h4= f.label :last_name
+                %p= f.text_field :last_name, class: "form-control"
+            .form-group
+              %h3= f.label :email
+              %p= f.text_field :email, class: "form-control"
+            .form-group
+              %h3= f.label :location
+              %p= f.text_field :location, class: "form-control"
+            .form-group
+              %h3= f.label :description
+              %p= f.text_area :description, class: "form-control"
+            .form-group
+              %h3= f.label(:technologies, "Choose your technologies")
+              = f.select :technology_ids, options_from_collection_for_select(@technologies, :id, :name, {selected: @user.technologies.map(&:id) }), {}, { class: "form-control", multiple: true, size: 4 }
+            .form-group
+              = f.fields_for :level do |level|
+                - @user.technologies.each do |technology|
+                  = level.label(:level, technology.name)
+                  = level.select :level, [0, 1, 2, 3]
+            .form-group
+              %h3= f.label(:languages, "Choose spoken languages")
+              = f.select :languages, options_for_select(@languages, selected: f.object.languages), {}, { class: "form-control", multiple: true }

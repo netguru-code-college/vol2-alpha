@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   scope "/:locale" do
-    resources :users
+    resources :users do
+      resources :profile, controller: "users/profile"
+    end
   end
 end
