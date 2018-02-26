@@ -1,0 +1,21 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    %a.navbar-brand{:href => root_path}
+      %span.logo.blue IT
+      %span.logo.grey utor
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          %a.nav-link{:href => root_path}
+            Home
+            %span.sr-only (current)
+        %li.nav-item.active
+          %a.nav-link{:href => "#"}
+            About Us
+            %span.sr-only (current)
+      - if user_signed_in?
+        = current_user.email
+        = link_to t(:logout), destroy_user_session_path, method: :delete, class: "nav-item nav-link"
+      - else
+        = link_to t(:sign_up), new_user_registration_path, class: "nav-item nav-link"
+        = link_to t(:login), new_user_session_path, class: "nav-item nav-link"
