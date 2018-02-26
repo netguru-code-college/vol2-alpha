@@ -1,5 +1,6 @@
-%video#bgvid{autoplay: "autoplay", loop: "loop", muted: "muted", playsinline: "", poster: "main_video_poster.jpg"}
-  %source{src: "main_video_bg.mp4", type: "video/mp4"}
+= video_tag("main_video_bg.mp4", type: "video/mp4", autoplay: "autoplay",
+            loop: "loop", muted: "muted", playsinline: "",
+            poster: "main_video_poster.jpg", id: "bgvid")
 .container
   .row
     .col-md-8.offset-md-2.col-12
