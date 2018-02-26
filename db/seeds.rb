@@ -58,14 +58,14 @@ available_technologies = Technology.all
 User.all.each do |user|
   user.levels.destroy_all
   available_technologies.sample(rand(0..5)).each do |technology|
-    user.levels.create(technology: technology, level: rand(0...4))
+    user.levels.create(technology: technology, level: rand(0...3))
   end
 end
 
 # Add languages to users
 available_languages = Language.all
 User.all.each do |user|
-  user.languages.destroy_all
+  user.speakers.destroy_all
   available_languages.sample(rand(1..3)).each do |language|
     user.speakers.create(language: language)
   end
