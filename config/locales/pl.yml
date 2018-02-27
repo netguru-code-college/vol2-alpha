@@ -12,3 +12,21 @@ pl:
   beginner_at: "Jestem początkujący w:"
   good_at: "Znam dobrze:"
   master_at: "Jestem mistrzem w:"
+
+  wicked:
+    personal: "dane"
+    mentoring: "poziomy"
+
+  users:
+    profile:
+      personal:
+        first_name: "Imię"
+        last_name: "Nazwisko"
+        email: "Email"
+        location: "Lokalizacja"
+        description: "Opis"
+        technologies: "Wybierz technologie"
+        next: "Dalej"
+      mentoring:
+        spoken_languages: "W jakich językach mówisz?"
+        save: "Zapisz"

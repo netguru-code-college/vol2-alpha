@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
 
   scope "/:locale" do
+    resources :users do
+      resources :profile, controller: "users/profile"
+    end
     get "/about", to: "pages#about"
-    resources :users
   end
 end
