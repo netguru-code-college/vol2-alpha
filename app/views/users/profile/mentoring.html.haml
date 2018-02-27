@@ -12,8 +12,8 @@
                   .form-group
                     = label_tag level.technology.name, nil, class: "form-control" do |label|
                       .form-row
-                        = level.technology.name
-                        = select_tag("levels[#{level.id}]", options_for_select([0, 1, 2, 3], selected: level.level ), class: "custom-select")
+                        %h3= level.technology.name
+                        = select_tag("levels[#{level.id}]", options_for_select([["Teach me PLZ", 0], ["Wannabe ninja", 1], ["Senior, Heh", 2], ["Ninja Hooray!", 3]], selected: level.level ), class: "custom-select bg-light")
             .form-group
               %h3= f.label(:languages, t(".spoken_languages"))
               .form-inline
@@ -21,5 +21,7 @@
                   .form-group.mx-2
                     = b.label class: "form-control" do
                       = b.check_box + " " + b.text
-            .col-sm-6.offset-3
-              = f.submit t(".save"), type: "submit", class: "btn btn-lg btn-danger btn-block"
+            .form-group
+              .row
+                .col-md-6.offset-3
+                  = f.submit t(".save"), type: "submit", class: "btn btn-lg btn-danger btn-block"
