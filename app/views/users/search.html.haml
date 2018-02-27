@@ -3,8 +3,8 @@
     - if @found_users.present?
       - @found_users.each do |user|
         .col-sm-4
-          .card.text-black.bg-secondery.mb-3{:style => "max-width: 23rem"}
-            .card-header= user.first_name + " " + user.last_name
+          .card.text-black.bg-white.mb-3{:style => "max-width: 23rem"}
+            .card-header= user.fullname
             .card-body
               - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
                 - if key == 0
@@ -31,6 +31,6 @@
               %br
               %h5= "About me"
               %p= user.description.truncate(120)
-              %button.btn.btn-info{:type => "button"} See more
+              = link_to "See more", user_path(user), class: "btn-btn-info"
     - else
       %h3= t("no_search_results")
