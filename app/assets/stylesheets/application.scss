@@ -74,3 +74,15 @@ font-size: 50px;
 .root-container {
   margin-top: 200px;
 }
+
+.img-circular{
+ width: 150px;
+ height: 150px;
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
+ display:block;
+ margin:auto;
+}

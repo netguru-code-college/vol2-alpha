@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   scope "/:locale" do
+    get "/about", to: "pages#about"
     resources :users
   end
 end
