@@ -63,8 +63,11 @@
           %p
           #opinions.text-muted= t("opinions")
           - @user.received_opinions.each do |opinion|
-            .card.card-body
-              = opinion.content
-              %p
-              %br= @user.find_author_name(opinion.author_id)
-            %p
+            .card
+              .card-header
+                %span.badge.badge-danger= opinion.rating
+                %small.text-muted rating by:
+                %strong= link_to @user.find_author_name(opinion.author_id), user_path(opinion.author_id)
+                %small.text-muted.right= opinion.created_at.strftime("%Y-%m-%d, %H:%M")
+              .card-body
+                = opinion.content
