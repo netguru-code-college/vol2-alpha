@@ -1,0 +1,5 @@
+%h5= "I want to learn:"
+- levels_grouped.each do |level|
+  %button.btn.btn-info{:type => "badge"}
+    = level.technology.name
+    %span.badge.badge-light= 0

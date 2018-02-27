@@ -38,51 +38,10 @@ video {
   margin-bottom: 45px;
 }
 
+.container{ margin-top: 200px; }
 .form-control{ padding: 15px; font-size: 20px; }
 
 @media screen and (max-device-width: 800px) {
   html { background: url('main_video_poster.jpg') #000 no-repeat center center fixed; }
   #bgvid { display: none; }
-}
-
-.logo {
-font-size: 50px;
-}
-
-.blue {
-  color: #7ca3fd;
-}
-
-.grey {
-  color: #555555;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #F8F9FA;
-    height: 70px;
-    line-height: 20px;
-    padding-top: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: inline-block;
-}
-
-.root-container {
-  margin-top: 200px;
-}
-
-.img-circular{
- width: 150px;
- height: 150px;
- background-size: cover;
- display: block;
- border-radius: 100px;
- -webkit-border-radius: 100px;
- -moz-border-radius: 100px;
- display:block;
- margin:auto;
 }
