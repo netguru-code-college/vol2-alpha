@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :users do
       resources :profile, controller: "users/profile"
     end
+    get "/about", to: "pages#about"
   end
 end
