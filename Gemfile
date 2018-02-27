@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap', '~> 4.0'
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'gravtastic'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
