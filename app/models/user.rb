@@ -47,4 +47,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
+  def find_author_name(author_id)
+    User.find(author_id).fullname
+  end
+
+  def average_rating
+    ratings = received_opinions.pluck(:rating)
+    avg = ratings.sum / ratings.size.to_f
+    avg.round(2) 
+  end
 end
