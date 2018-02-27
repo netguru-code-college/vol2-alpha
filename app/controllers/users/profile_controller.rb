@@ -1,5 +1,5 @@
 class Users::ProfileController < ApplicationController
-  include Wicked::Wizard::Translated
+  include Wicked::Wizard
 
   steps :personal, :mentoring
 
