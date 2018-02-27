@@ -81,6 +81,7 @@ GEM
     ffi (1.9.21)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -256,6 +257,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   devise (~> 4.4, >= 4.4.1)
   faker (~> 1.8, >= 1.8.7)
+  gravtastic
   haml (~> 5.0, >= 5.0.4)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)

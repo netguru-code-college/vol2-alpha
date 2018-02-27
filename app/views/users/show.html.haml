@@ -1,0 +1,70 @@
+.container
+  .row
+    .col-md-10.offset-1
+      .card
+        .card-body
+          %strong.card.bg-light.mb-3.card-header= @user.fullname
+          %h5.card-title
+          #rating.text-muted= t("rating")
+          - if @user.average_rating <= 2
+            %button.btn.btn-danger{:type => "badge"}= @user.average_rating
+          - elsif @user.average_rating > 2 && @user.average_rating < 4.5
+            %button.btn.btn-warning{:type => "badge"}= @user.average_rating
+          - elsif @user.average_rating >= 4.5
+            %button.btn.btn-success{:type => "badge"}= @user.average_rating
+          - else
+            %button.btn.btn-warning{:type => "badge"}= 0
+          %p
+          #technologies.text-muted= t("technologies")
+          - if @technologies.any?
+            - @user.levels.group_by(&:level).each do |key, levels_grouped|
+              - if key == 0
+                %p
+                #want_to_learn.text-muted= t("want_to_learn")
+                - levels_grouped.each do |level|
+                  %button.btn.btn-info{:type => "badge"}
+                    = level.technology.name
+                    %span.badge.badge-light= 0
+              - elsif key == 1
+                %p
+                #beginner_at.text-muted= t("beginner_at")
+                - levels_grouped.each do |level|
+                  %button.btn.btn-success{:type => "badge"}
+                    = level.technology.name
+                    %span.badge.badge-light= 1
+              - elsif key == 2
+                %p
+                #good_at.text-muted= t("good_at")
+                - levels_grouped.each do |level|
+                  %button.btn.btn-warning{:type => "badge"}
+                    = level.technology.name
+                    %span.badge.badge-light= 2
+              - else
+                %p
+                #master_at.text-muted= t("master_at")
+                - levels_grouped.each do |level|
+                  %button.btn.btn-danger{:type => "badge"}
+                    = level.technology.name
+                    %span.badge.badge-light= 3
+          - else
+            = t("no_search_results")
+          %p
+          #languages.text-muted= t("languages")
+          - @user.languages.each do |language|
+            %button.btn.btn-success{:type => "badge"}
+              = language.name
+          %p
+          .text-muted E-mail:
+          %strong= @user.email
+          %p
+          %h6.card-subtitle.mb-2.text-muted
+          #description.text-muted= t("description")
+          %p.card-text= @user.description
+          %p
+          #opinions.text-muted= t("opinions")
+          - @user.received_opinions.each do |opinion|
+            .card.card-body
+              = opinion.content
+              %p
+              %br= @user.find_author_name(opinion.author_id)
+            %p

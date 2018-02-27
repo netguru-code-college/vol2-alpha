@@ -3,6 +3,16 @@ pl:
   search: "Szukaj"
   search_hint: "Szukaj JavaScript, React w Poznaniu ..."
   no_search_results: "Brak wyników"
+  
+  description: "O mnie:"
+  technologies: "Technologie:"
+  opinions: "Opinie:"
+  languages: "Języki:"
+  rating: "Ocena"
+  want_to_learn: "Chcę się nauczyć:"
+  beginner_at: "Jestem początkujący w:"
+  good_at: "Znam dobrze:"
+  master_at: "Jestem mistrzem w:"
 
   wicked:
     personal: "dane"

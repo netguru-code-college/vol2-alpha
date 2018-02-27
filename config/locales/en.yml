@@ -7,6 +7,15 @@ en:
   wicked:
     personal: "personal"
     mentoring: "mentoring"
+    description: "Description:"
+    technologies: "Technologies:"
+    opinions: "Opinions:"
+    languages: "Languages:"
+    rating: "Rating"
+    want_to_learn: "I want to learn:"
+    beginner_at: "I'm a beginner at:"
+    good_at: "I'm good at:"
+    master_at: "I'm a master at:"
 
   users:
     profile:
