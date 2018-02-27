@@ -1,5 +1,8 @@
 # ..:: ITutor - Alpha Team Project ::..
 
+[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com)
+
+
 ## Project description:
 
 The idea behind ITutor is to connect technology mentors with newbies looking for a reliable source of tech knowledge. The app is based on the belief that participating mentors can not stand keeping their knowledge unshared, and that hungry newbies are on their way to becoming mentors themselves.
