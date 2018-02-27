@@ -8,22 +8,22 @@
           .card-body
             .form-row
               .form-group.col-md-6
-                %h4= f.label :first_name
+                %h4= f.label :first_name, t(".first_name")
                 %p= f.text_field :first_name, class: "form-control"
               .form-group.col-md-6
-                %h4= f.label :last_name
+                %h4= f.label :last_name, t(".last_name")
                 %p= f.text_field :last_name, class: "form-control"
             .form-group
-              %h4= f.label :email
+              %h4= f.label :email, t(".email")
               %p= f.text_field :email, class: "form-control"
             .form-group
-              %h4= f.label :location
+              %h4= f.label :location, t(".location")
               %p= f.text_field :location, class: "form-control"
             .form-group
-              %h4= f.label :description
+              %h4= f.label :description, t(".description")
               %p= f.text_area :description, class: "form-control", rows: "9"
             .form-group
-              %h4= f.label(:technologies, "Choose your technologies")
+              %h4= f.label(:technologies, t(".technologies"))
               = f.select :technology_ids, options_from_collection_for_select(@technologies, :id, :name, {selected: @user.technologies.map(&:id) }), {}, { class: "form-control", multiple: true, size: 13 }
             .col-sm-6.offset-3
-              = f.submit "Next", type: "submit", class: "btn btn-lg btn-info btn-block"
+              = f.submit t(".next"), type: "submit", class: "btn btn-lg btn-info btn-block"

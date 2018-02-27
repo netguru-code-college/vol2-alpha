@@ -3,3 +3,21 @@ en:
   search: "Search"
   search_hint: "Search for JavaScript, React in Poznan ..."
   no_search_results: "No results found"
+
+  wicked:
+    personal: "personal"
+    mentoring: "mentoring"
+
+  users:
+    profile:
+      personal:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        location: "Location"
+        description: "Tell the world about yourself"
+        technologies: "Select technologies to teach and/or to learn"
+        next: "Next"
+      mentoring:
+        spoken_languages: "Select spoken languages you could use for mentoring"
+        save: "Save"
