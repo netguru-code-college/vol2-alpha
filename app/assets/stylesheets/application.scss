@@ -54,11 +54,12 @@ font-size: 50px;
 }
 
 .blue {
-  color: #7ca3fd;
+  color: #c82333;;
 }
 
 .grey {
   color: #555555;
+  margin-left: -13px;
 }
 
 .footer {
@@ -94,4 +95,26 @@ font-size: 50px;
 
 .navbar {
   height: 70px;
+}
+
+.dropdown a {
+  color: #c82333;
+}
+
+a.nav-link {
+  color: #c82333 !important;
+}
+
+.dropdown-menu a {
+    color: #fff !important;
+}
+
+.dropdown-menu.show {
+  background-color: #c82333;
+  min-width: 9rem;
+  left: 50px;
+}
+
+.dropdown-item:hover {
+  background-color: #e69890;
 }

@@ -16,7 +16,7 @@
               = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
             .row
               .col-sm-6.offset-sm-3
-                = f.submit "Log in", type: "submit", class: "btn btn-info btn-block"
+                = f.submit "Log in", type: "submit", class: "btn btn-danger btn-block"
                 %br
                 - if devise_mapping.rememberable?
                   .form-check.text-center
