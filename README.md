@@ -9,6 +9,8 @@ The idea behind ITutor is to connect technology mentors with newbies looking for
 
 Initial app version implies simple connection of two groups via either internal or email messages with potential further connection via platform controlled meetings. The mentors have ratings and opinions. Any user is able to search for a mentor with a specific skill set and capable of teaching in a specific human language.
 
+We're currently deployed on [Heroku](https://itutor-ncc.herokuapp.com/). The current build should be live there assuming nothing is broken.
+
 ### Steps to setup:
 
 * `bundle install`
