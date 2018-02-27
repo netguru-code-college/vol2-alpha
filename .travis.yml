@@ -1,5 +1,12 @@
 language: ruby
 rvm:
   - "2.4.1"
-
-#wiedzieliscie ze Sergey ma 28 lat???
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - psql -c 'create database itutor_test' -U postgres
