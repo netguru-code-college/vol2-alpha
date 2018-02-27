@@ -3,3 +3,7 @@ en:
   search: "Search"
   search_hint: "Search for JavaScript, React in Poznan ..."
   no_search_results: "No results found"
+  description: "Description:"
+  technologies: "Technologies:"
+  opinions: "Opinions:"
+  languages: "Languages:"
