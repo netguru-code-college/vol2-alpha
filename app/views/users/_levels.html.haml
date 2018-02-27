@@ -1,5 +1,4 @@
-%h5= "I want to learn:"
+%h5= t("want_to_learn")
 - levels_grouped.each do |level|
-  %button.btn.btn-info{:type => "badge"}
-    = level.technology.name
-    %span.badge.badge-light= 0
+  = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-info", method: :post
+  %br

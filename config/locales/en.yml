@@ -18,6 +18,8 @@ en:
     mentoring: "mentoring"
 
   users:
+    search:
+      about: "About me"
     profile:
       personal:
         first_name: "First name"

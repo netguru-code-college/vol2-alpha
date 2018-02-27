@@ -9,28 +9,25 @@
               - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
                 - if key == 0
                   = render "levels", levels_grouped: levels_grouped
+                  %br
                 - elsif key == 1
-                  %h5= "I'm a beginner at:"
+                  %h5= t("beginner_at")
                   - levels_grouped.each do |level|
-                    %button.btn.btn-success{:type => "badge"}
-                      = level.technology.name
-                      %span.badge.badge-light= 1
+                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-success", method: :post
+                    %br
                 - elsif key == 2
-                  %h5= "I'm good at:"
+                  %h5= t("good_at")
                   - levels_grouped.each do |level|
-                    %button.btn.btn-warning{:type => "badge"}
-                      = level.technology.name
-                      %span.badge.badge-light= 2
+                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-warning", method: :post
+                    %br
                 - else
-                  %h5= "I'm a master at:"
+                  %h5= t("master_at")
                   - levels_grouped.each do |level|
-                    %button.btn.btn-danger{:type => "badge"}
-                      = level.technology.name
-                      %span.badge.badge-light= 3
+                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :post
+                    %br
               %br
-              %br
-              %h5= "About me"
+              %h5= t(".about")
               %p= user.description.truncate(120)
-              = link_to "See more", user_path(user), class: "btn-btn-info"
+              = button_to "See more", user_path(user), class: "btn btn-info", method: "get"
     - else
       %h3= t("no_search_results")
