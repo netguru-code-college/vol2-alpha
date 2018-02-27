@@ -58,7 +58,7 @@ available_technologies = Technology.all
 User.all.each do |user|
   user.levels.destroy_all
   available_technologies.sample(rand(0..5)).each do |technology|
-    user.levels.create(technology: technology, level: rand(0...3))
+    user.levels.create(technology: technology, level: rand(0..3))
   end
 end
 
