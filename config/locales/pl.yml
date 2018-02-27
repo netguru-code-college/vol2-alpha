@@ -3,7 +3,6 @@ pl:
   search: "Szukaj"
   search_hint: "Szukaj JavaScript, React w Poznaniu ..."
   no_search_results: "Brak wyników"
-  
   description: "O mnie:"
   technologies: "Technologie:"
   opinions: "Opinie:"
