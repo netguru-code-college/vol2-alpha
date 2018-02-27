@@ -10,10 +10,16 @@
               - @user.levels.each do |level|
                 .col-md-4
                   .form-group
-                    = label_tag level.technology.name
-                    = select_tag("levels[#{level.id}]", options_for_select([0, 1, 2, 3], selected: level.level ), class: "custom-select")
+                    = label_tag level.technology.name, nil, class: "form-control" do |label|
+                      .form-row
+                        = level.technology.name
+                        = select_tag("levels[#{level.id}]", options_for_select([0, 1, 2, 3], selected: level.level ), class: "custom-select")
             .form-group
               %h3= f.label(:languages, t(".spoken_languages"))
-              = f.select :language_ids, options_from_collection_for_select(@languages, :id, :name, { selected: @user.languages.map(&:id)}), {}, { class: "form-control", multiple: true }
+              .form-inline
+                = f.collection_check_boxes :language_ids, @languages, :id, :name do |b|
+                  .form-group.mx-2
+                    = b.label class: "form-control" do
+                      = b.check_box + " " + b.text
             .col-sm-6.offset-3
               = f.submit t(".save"), type: "submit", class: "btn btn-lg btn-info btn-block"

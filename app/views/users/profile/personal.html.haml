@@ -24,6 +24,12 @@
               %p= f.text_area :description, class: "form-control", rows: "9"
             .form-group
               %h4= f.label(:technologies, t(".technologies"))
-              = f.select :technology_ids, options_from_collection_for_select(@technologies, :id, :name, {selected: @user.technologies.map(&:id) }), {}, { class: "form-control", multiple: true, size: 13 }
+              .row
+                - Technology.all.each_slice(4) do |slice|
+                  .col-md-3
+                    .form-group
+                      = f.collection_check_boxes :technology_ids, slice, :id, :name do |b|
+                        = b.label class: "form-control" do
+                          = b.check_box + " " + b.text
             .col-sm-6.offset-3
               = f.submit t(".next"), type: "submit", class: "btn btn-lg btn-info btn-block"
