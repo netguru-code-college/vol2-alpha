@@ -46,7 +46,6 @@ class User < ApplicationRecord
   has_many :written_opinions, foreign_key: "author_id", class_name: "Opinion"
 
   validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -66,10 +65,4 @@ class User < ApplicationRecord
     avg = ratings.sum / ratings.size.to_f
     avg.round(2)
   end
-
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-  end
-
 end
