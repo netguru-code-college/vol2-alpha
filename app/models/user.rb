@@ -63,6 +63,6 @@ class User < ApplicationRecord
   def average_rating
     ratings = received_opinions.pluck(:rating)
     avg = ratings.sum / ratings.size.to_f
-    avg.round(2) 
+    avg.round(2)
   end
 end
