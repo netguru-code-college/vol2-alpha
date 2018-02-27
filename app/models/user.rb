@@ -27,6 +27,10 @@
 #
 
 class User < ApplicationRecord
+
+  include Gravtastic
+  is_gravtastic!
+
   include PgSearch
   pg_search_scope :search, against: [:first_name, :last_name, :location],
                            associated_against: { technologies: [:name],

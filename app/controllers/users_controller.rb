@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def search
     @found_users = User.search(params[:query]) if params[:query].present?
   end
-
+  
   def show
     @user = User.find(params[:id])
     @technologies = @user.technologies

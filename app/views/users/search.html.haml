@@ -1,10 +1,36 @@
 .container
-  - if @found_users.present?
-    - @found_users.each do |user|
-      .card.mb-2
-        .card-body
-          %p= user.attributes
-          %p= user.technologies.inspect
-          %p= user.languages.inspect
-  - else
-    %h3= t("no_search_results")
+  .row
+    - if @found_users.present?
+      - @found_users.each do |user|
+        .col-sm-4
+          .card.text-black.bg-secondery.mb-3{:style => "max-width: 23rem"}
+            .card-header= user.first_name + " " + user.last_name
+            .card-body
+              - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
+                - if key == 0
+                  = render "levels", levels_grouped: levels_grouped
+                - elsif key == 1
+                  %h5= "I'm a beginner at:"
+                  - levels_grouped.each do |level|
+                    %button.btn.btn-success{:type => "badge"}
+                      = level.technology.name
+                      %span.badge.badge-light= 1
+                - elsif key == 2
+                  %h5= "I'm good at:"
+                  - levels_grouped.each do |level|
+                    %button.btn.btn-warning{:type => "badge"}
+                      = level.technology.name
+                      %span.badge.badge-light= 2
+                - else
+                  %h5= "I'm a master at:"
+                  - levels_grouped.each do |level|
+                    %button.btn.btn-danger{:type => "badge"}
+                      = level.technology.name
+                      %span.badge.badge-light= 3
+              %br
+              %br
+              %h5= "About me"
+              %p= user.description.truncate(120)
+              %button.btn.btn-info{:type => "button"} See more
+    - else
+      %h3= t("no_search_results")
