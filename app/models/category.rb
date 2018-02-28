@@ -10,4 +10,5 @@
 
 class Category < ApplicationRecord
   has_many :technologies
+  validates :name, presence: true
 end
