@@ -32,3 +32,6 @@ en:
       mentoring:
         spoken_languages: "Select spoken languages you could use for mentoring"
         save: "Save"
+
+  add_opinion: "Add new opinion"
+  opinion: "Opinion"
