@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-scope '(:locale)', locale: /en|pl/ do
+  scope '(:locale)', locale: /en|pl/ do
     resources :users do
       resources :profile, controller: "users/profile"
       resources :opinions
     end
+    resources :meetups
     get "/about", to: "pages#about"
-      end
+  end
 end

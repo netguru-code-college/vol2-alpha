@@ -1,0 +1,4 @@
+.container
+  %h1 All meetups
+  - @meetups.each do |meetup|
+    %p= meetup.location
