@@ -1,0 +1,7 @@
+:javascript
+  var map = Gmaps.build('Google');
+  map.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = map.addMarkers(#{raw @hash.to_json});
+    map.bounds.extendWith(markers);
+    map.fitMapToBounds();
+  });

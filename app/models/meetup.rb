@@ -32,4 +32,8 @@ class Meetup < ApplicationRecord
   belongs_to :technology
   belongs_to :language
   belongs_to :author, foreign_key: "author_id", class_name: "User"
+
+  def info_html_text
+    "<b><a href='/'>#{title}</a></b><br>#{description}"
+  end
 end
