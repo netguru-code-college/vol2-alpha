@@ -44,6 +44,7 @@ class User < ApplicationRecord
   has_many :languages, through: :speakers
   has_many :received_opinions, foreign_key: "user_id", class_name: "Opinion"
   has_many :written_opinions, foreign_key: "author_id", class_name: "Opinion"
+  has_many :hosted_meetups, foreign_key: "author_id", class_name: "Meetup"
 
   validates :first_name, :last_name, :email, presence: true
 
