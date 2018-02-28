@@ -85,3 +85,18 @@ all_users.each do |user|
     )
   end
 end
+
+# Create meetups
+Meetup.all.destroy_all
+30.times do
+  Meetup.create(
+    title: "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.adjective} #{Faker::Hacker.adjective}",
+    description: Faker::Hacker.say_something_smart,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    date: Time.now + rand(-100..100).days + rand(1..300).minutes,
+    technology: available_technologies.sample,
+    language: available_languages.sample,
+    author: all_users.sample
+  )
+end
