@@ -56,11 +56,12 @@ font-size: 50px;
 }
 
 .blue {
-  color: #7ca3fd;
+  color: #c82333;;
 }
 
 .grey {
   color: #555555;
+  margin-left: -13px;
 }
 
 .footer {
@@ -97,6 +98,35 @@ font-size: 50px;
 .navbar {
   height: 70px;
 }
+
+.dropdown a {
+  color: #c82333;
+}
+
+a.nav-link {
+  color: #c82333 !important;
+}
+
+.dropdown-menu a {
+    color: #fff !important;
+}
+
+.dropdown-menu.show {
+  background-color: #c82333;
+  min-width: 9rem;
+  left: 50px;
+}
+
+.dropdown-item:hover {
+  background-color: #e69890;
+}
+
+.btn.btn-lg.btn-danger.btn-block a {
+  color: #fff;
+}
+
+.right {
+    float: right;
 
 .card {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
