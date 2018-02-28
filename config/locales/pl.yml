@@ -36,3 +36,6 @@ pl:
 
   add_opinion: "Dodaj nową opinię"
   opinion: "Treść"
+  edit: "Edytuj"
+  delete: "Usuń"
+  confirmation: "Czy jesteś pewien?"
