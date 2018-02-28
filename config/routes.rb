@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+
+  get 'opinions/create'
+
   root "users#index"
 
   post "/", to: "users#search"
@@ -7,10 +11,11 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  scope "/:locale" do
+scope '(:locale)', locale: /en|pl/ do
     resources :users do
       resources :profile, controller: "users/profile"
+      resources :opinions
     end
     get "/about", to: "pages#about"
-  end
+      end
 end
