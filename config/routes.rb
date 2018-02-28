@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  scope "/:locale" do
+scope '(:locale)', locale: /en|pl/ do
     resources :users do
       resources :profile, controller: "users/profile"
     end
