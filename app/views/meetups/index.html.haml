@@ -1,7 +1,8 @@
 .container
+  = render partial: "technologies"
   %div
     #map{:style => "height: 400px;"}
-  %h1 All meetups
+  %h1 Meetups
   - @meetups.each do |meetup|
     %p= meetup.title
 = render partial: "gmap"

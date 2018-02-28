@@ -1,0 +1,3 @@
+%div.text-center
+  - @technology_names.each do |tech_name|
+    = link_to tech_name, meetups_path(query: tech_name), class: "badge badge-danger tag"
