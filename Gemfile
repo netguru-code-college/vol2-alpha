@@ -8,6 +8,7 @@ end
 gem 'bootstrap', '~> 4.0'
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'gravtastic'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'haml', '~> 5.0', '>= 5.0.4'
