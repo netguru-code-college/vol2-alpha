@@ -64,19 +64,24 @@
           #opinions.text-muted= t("opinions")
           %p
           - if current_user
-            %h5= link_to t("add_opinion"), new_user_opinion_path(@user)
+            %h5= button_to t("add_opinion"), new_user_opinion_path(@user), class: "btn btn-primary btn-lg", method: "get"
           %p
           - @user.received_opinions.each do |opinion|
             .card
               .card-header
                 - if opinion.rating <= 2
-                  %button.btn.btn-danger{:type => "badge"}= opinion.rating
+                  %button.btn.btn-danger.btn-sm{:type => "badge"}= opinion.rating
                 - elsif opinion.rating >= 4.5
-                  %button.btn.btn-success{:type => "badge"}= opinion.rating
+                  %button.btn.btn-success.btn-sm{:type => "badge"}= opinion.rating
                 - else
-                  %button.btn.btn-warning{:type => "badge"}= opinion.rating
+                  %button.btn.btn-warning.btn-sm{:type => "badge"}= opinion.rating
                 %small.text-muted rating by:
                 %strong= link_to @user.find_author_name(opinion.author_id).fullname, user_path(opinion.author_id)
                 %small.text-muted.right= opinion.created_at.strftime("%Y-%m-%d, %H:%M")
               .card-body
                 = opinion.content
+              - if current_user == opinion.author
+                .btn-group.btn
+                  = button_to t("edit"), edit_user_opinion_path(@user, opinion), class: "btn btn-secondary mx-2", method: "get"
+                  = button_to t("delete"), user_opinion_path(@user, opinion), method: :delete, data: { confirm: t("confirmation") }, class: "btn btn-danger mx-2"
+                %p

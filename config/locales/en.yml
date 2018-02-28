@@ -35,3 +35,6 @@ en:
 
   add_opinion: "Add new opinion"
   opinion: "Opinion"
+  edit: "Edit"
+  delete: "Delete"
+  confirmation: "Are you sure?"
