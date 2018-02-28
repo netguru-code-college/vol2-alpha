@@ -4,4 +4,10 @@
     %font{:size => "5"}
       %strong= user.fullname
     %br
+    %font{:size => "3"}
+      = t("rating")
+      = user.average_rating
+    %br
+    = button_to t("users.search.see_profile"), user_path(user), class: "btn btn-outline-info btn-sm", method: "get"
     = button_to t("users.search.see_profile"), user_path(user), class: "btn btn-outline-info btn-sm", method: "get" 
+

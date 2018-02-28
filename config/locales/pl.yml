@@ -7,11 +7,12 @@ pl:
   technologies: "Technologie:"
   opinions: "Opinie:"
   languages: "Języki:"
-  rating: "Ocena"
+  rating: "Ocena:"
   want_to_learn: "Chcę się nauczyć:"
   beginner_at: "Jestem początkujący w:"
   good_at: "Znam dobrze:"
   master_at: "Jestem mistrzem w:"
+  choose_lang: "Wybierz język"
 
   wicked:
     personal: "dane"
