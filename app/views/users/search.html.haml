@@ -3,9 +3,9 @@
     - if @found_users.present?
       - @found_users.each do |user|
         .col-sm-4
-          .card.text-black.bg-white.mb-3{:style => "max-width: 23rem"}
+          .card.text-black.bg-white.mb-3{:style => "max-width: 20rem, overflow: scroll"}
             .card-header= render "media", user: user
-            .card-body
+            .card-body{:style => "height: 27rem"}
               - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
                 - if key == 0
                   = render "levels", levels_grouped: levels_grouped
@@ -25,6 +25,5 @@
                   - levels_grouped.each do |level|
                     = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :postS
                     %br
-              = button_to "See more...", user_path(user), class: "btn btn-muted", method: "get"
     - else
       %h3= t("no_search_results")

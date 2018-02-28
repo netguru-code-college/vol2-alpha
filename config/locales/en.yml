@@ -19,7 +19,7 @@ en:
 
   users:
     search:
-      about: "About me"
+      see_profile: "See profile"
     profile:
       personal:
         first_name: "First name"

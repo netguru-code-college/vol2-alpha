@@ -1,4 +1,7 @@
 .media
-  = image_tag gravatar_url("you@youremail.com"), alt: "", size: '100x100'
+  = image_tag gravatar_url(user.email), alt: "Icon", size: '60x60'
   .media-body.text-center
-    %h5.m-35= user.fullname
+    %font{:size => "5"}
+      %strong= user.fullname
+    %br
+    = button_to t("users.search.see_profile"), user_path(user), class: "btn btn-outline-info btn-sm", method: "get" 

@@ -19,7 +19,7 @@ pl:
 
   users:
     search:
-      about: "O mnie"
+      see_profile: "Zobacz profil"
     profile:
       personal:
         first_name: "Imię"
