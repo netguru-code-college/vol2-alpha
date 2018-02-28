@@ -18,6 +18,8 @@ pl:
     mentoring: "poziomy"
 
   users:
+    search:
+      about: "O mnie"
     profile:
       personal:
         first_name: "Imię"
