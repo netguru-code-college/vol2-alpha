@@ -40,8 +40,8 @@ end
 
 test_password = "Testpass"
 
-if User.all.size < 20
-  20.times do
+if User.all.size < 60
+  60.times do
     User.create(
       email: Faker::Internet.email,
       password: test_password,
@@ -52,6 +52,7 @@ if User.all.size < 20
     )
   end
 end
+
 
 # Add technologies to users
 available_technologies = Technology.all

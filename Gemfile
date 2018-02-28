@@ -16,10 +16,10 @@ gem 'pg', '~> 1.0'
 gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'rails', '~> 5.1.5'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'wicked', '~> 1.3', '>= 1.3.2'
 gem 'faker', '~> 1.8', '>= 1.8.7'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

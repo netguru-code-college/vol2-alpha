@@ -14,5 +14,25 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
+//
+
+// window.onload(function() {
+ $(function() {
+   if ($('.pagination').length) {
+      $(window).scroll(function() {
+        var url;
+        url = $('.pagination .next a').attr('href');
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50)
+         {
+           // debugger;
+
+           $('.pagination').html("<div class='mx-auto'><img src='/preloader.gif'></div>");
+           return $.post(url);
+
+         };
+      });
+      return $(window).scroll();
+    }
+  });
+// });
