@@ -1,4 +1,12 @@
 .container
+  %div
+    #map{:style => "height: 400px;"}
   %h1 All meetups
   - @meetups.each do |meetup|
-    %p= meetup.location
+    %p= meetup.title
+
+:javascript
+  var map = Gmaps.build('Google');
+  map.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    map.fitMapToBounds();
+  });

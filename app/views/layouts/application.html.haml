@@ -7,6 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = favicon_link_tag 'favicon.ico'
+    = javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV['GMAP_KEY']}"
+    = javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+    = javascript_include_tag "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"
   %body
     = render "layouts/navbar"
     = render "layouts/alerts"
