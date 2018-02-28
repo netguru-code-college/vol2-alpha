@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :users do
       resources :profile, controller: "users/profile"
       resources :opinions
+      collection do
+        get :top
+      end
     end
     resources :meetups
     get "/about", to: "pages#about"
