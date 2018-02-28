@@ -57,7 +57,7 @@ class User < ApplicationRecord
   end
 
   def find_author_name(author_id)
-    User.find(author_id).fullname
+    User.find(author_id)
   end
 
   def average_rating

@@ -33,3 +33,6 @@ pl:
       mentoring:
         spoken_languages: "W jakich językach mówisz?"
         save: "Zapisz"
+
+  add_opinion: "Dodaj nową opinię"
+  opinion: "Treść"
