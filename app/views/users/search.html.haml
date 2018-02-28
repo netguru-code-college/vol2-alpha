@@ -1,5 +1,8 @@
 .container.form-wrapper
   %div#results
-    = render partial: "users/results", object: @found_users
+    = render partial: "users/results", object: @found_users, layout: false
   - if @found_users.present?
     = paginate @found_users, remote: true, method: :post
+    .preloader.text-center
+      .mx-auto
+        = image_tag("/preloader.gif")

@@ -1,7 +1,10 @@
-$("#results").append("<%= j render 'users/results', :layout => false %>");
+$("#results").append("<%= j render partial: 'users/results', :layout => false %>");
 <% if @found_users.next_page %>
  $(".pagination").replaceWith("<%= j paginate @found_users, remote: true, method: :post %>");
 <% else %>
  $(window).off("scroll");
  $(".pagination").remove();
+ $(".preloader").remove();
 <% end %>
+
+<% sleep 1 %>

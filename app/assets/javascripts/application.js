@@ -16,23 +16,21 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //
-
-// window.onload(function() {
- $(function() {
-   if ($('.pagination').length) {
-      $(window).scroll(function() {
-        var url;
-        url = $('.pagination .next a').attr('href');
-        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50)
-         {
-           // debugger;
-
-           $('.pagination').html("<div class='mx-auto'><img src='/preloader.gif'></div>");
-           return $.post(url);
-
-         };
-      });
-      return $(window).scroll();
-    }
-  });
-// });
+var war_crime = [];
+$(function() {
+ if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url;
+      url = $('.pagination .next a');
+      if (url.attr('href') && $(window).scrollTop() > $(document).height() - $(window).height() - 1)
+       {
+         if ( !war_crime.includes(url.attr('href')) ) {
+           $('.pagination').hide();
+           war_crime.push(url.attr('href'));
+           return url[0].click();
+         }
+       }
+    });
+    return $(window).scroll();
+  }
+});

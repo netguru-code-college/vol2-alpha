@@ -5,14 +5,10 @@ class UsersController < ApplicationController
 
   def search
     @found_users = User.search(params[:query]).page(params[:page]).per(6) if params[:query].present?
-    #binding.pry
+
     respond_to do |format|
       format.html
-      format.js do
-        render partial: "users/search.js", :layout => false
-      end
-
-
+      format.js
     end
 
   end
