@@ -1,29 +1,8 @@
 .container.form-wrapper
-  .row
-    - if @found_users.present?
-      - @found_users.each do |user|
-        .col-sm-4
-          .card.text-black.bg-white.mb-3{:style => "max-width: 20rem, overflow: scroll"}
-            .card-header= render "media", user: user
-            .card-body{:style => "height: 27rem"}
-              - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
-                - if key == 0
-                  = render "levels", levels_grouped: levels_grouped
-                  %br
-                - elsif key == 1
-                  %h5= t("beginner_at")
-                  - levels_grouped.each do |level|
-                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-success", method: :post
-                    %br
-                - elsif key == 2
-                  %h5= t("good_at")
-                  - levels_grouped.each do |level|
-                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-warning", method: :post
-                    %br
-                - else
-                  %h5= t("master_at")
-                  - levels_grouped.each do |level|
-                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :post
-                    %br
-    - else
-      %h3= t("no_search_results")
+  %div#results
+    = render partial: "users/results", object: @found_users, layout: false
+  - if @found_users.present?
+    = paginate @found_users, remote: true, method: :post
+    .preloader.text-center
+      .mx-auto
+        = image_tag("/preloader.gif")

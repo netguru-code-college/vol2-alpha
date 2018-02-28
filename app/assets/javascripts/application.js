@@ -14,5 +14,23 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
+//
+var war_crime = [];
+$(function() {
+ if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url;
+      url = $('.pagination .next a');
+      if (url.attr('href') && $(window).scrollTop() > $(document).height() - $(window).height() - 1)
+       {
+         if ( !war_crime.includes(url.attr('href')) ) {
+           $('.pagination').hide();
+           war_crime.push(url.attr('href'));
+           return url[0].click();
+         }
+       }
+    });
+    return $(window).scroll();
+  }
+});
