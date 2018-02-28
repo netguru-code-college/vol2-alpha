@@ -4,7 +4,7 @@
       - @found_users.each do |user|
         .col-sm-4
           .card.text-black.bg-white.mb-3{:style => "max-width: 23rem"}
-            .card-header= user.fullname
+            .card-header= render "media", user: user
             .card-body
               - user.levels.group_by(&:level).sort.reverse.each do |key, levels_grouped|
                 - if key == 0
@@ -23,11 +23,8 @@
                 - else
                   %h5= t("master_at")
                   - levels_grouped.each do |level|
-                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :post
+                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :postS
                     %br
-              %br
-              %h5= t(".about")
-              %p= user.description.truncate(120)
-              = button_to "See more", user_path(user), class: "btn btn-info", method: "get"
+              = button_to "See more...", user_path(user), class: "btn btn-muted", method: "get"
     - else
       %h3= t("no_search_results")
