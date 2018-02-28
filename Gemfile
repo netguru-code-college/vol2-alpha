@@ -6,8 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap', '~> 4.0'
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'gravtastic'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
@@ -20,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'wicked', '~> 1.3', '>= 1.3.2'
 gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'kaminari'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
