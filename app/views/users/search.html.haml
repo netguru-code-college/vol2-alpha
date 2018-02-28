@@ -23,7 +23,7 @@
                 - else
                   %h5= t("master_at")
                   - levels_grouped.each do |level|
-                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :postS
+                    = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-danger", method: :post
                     %br
     - else
       %h3= t("no_search_results")
