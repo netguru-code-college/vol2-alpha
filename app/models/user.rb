@@ -67,4 +67,8 @@ class User < ApplicationRecord
     avg = ratings.sum / ratings.size.to_f if ratings.size > 0
     avg.round(2)
   end
+
+  def self.top
+    all.sort_by(&:average_rating).last(30).reverse
+  end
 end
