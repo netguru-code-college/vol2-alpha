@@ -6,6 +6,6 @@ class UserDecorator < Draper::Decorator
   end
 
   def find_author_name(author_id)
-    object.find(author_id)
+    User.find(author_id).decorate
   end
 end

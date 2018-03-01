@@ -11,7 +11,7 @@
         %tr
           %th{:scope => "row"}= i+1
           %td= link_to user.fullname, user_path(user)
-          %td= user.average_rating
+          %td= UserServices::AverageRating.new(user).call
           %td= user.technologies.size
           %td= link_to "Rate mentor", new_user_opinion_path(user), class: "badge badge-danger"
           %td.text-muted= link_to "Contact mentor", "#", class: "badge badge-dark"
