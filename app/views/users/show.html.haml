@@ -5,45 +5,45 @@
         .card-body
           %strong.card.bg-light.mb-3.card-header= @user.fullname
           %h5.card-title
-          #rating.text-muted= t("rating")
+          %span#rating.text-muted= t("rating")
           - if @user.average_rating <= 2
-            %button.btn.btn-danger{:type => "badge"}= @user.average_rating
+            %button.btn.btn-sm.btn-danger{:type => "badge"}= @user.average_rating
           - elsif @user.average_rating > 2 && @user.average_rating < 4.5
-            %button.btn.btn-warning{:type => "badge"}= @user.average_rating
+            %button.btn.btn-sm.btn-warning{:type => "badge"}= @user.average_rating
           - elsif @user.average_rating >= 4.5
-            %button.btn.btn-success{:type => "badge"}= @user.average_rating
+            %button.btn.btn-sm.btn-success{:type => "badge"}= @user.average_rating
           - else
-            %button.btn.btn-warning{:type => "badge"}= 0
-          %p
-          #technologies.text-muted= t("technologies")
+            %button.btn.btn-sm.btn-warning{:type => "badge"}= 0
+          %br
+          %h4#technologies.text-muted= t("technologies")
           - if @technologies.any?
             - @user.levels.group_by(&:level).each do |key, levels_grouped|
               - if key == 0
                 %p
                 #want_to_learn.text-muted= t("want_to_learn")
                 - levels_grouped.each do |level|
-                  %button.btn.btn-info{:type => "badge"}
+                  %button.btn.btn-sm.btn-info{:type => "badge"}
                     = level.technology.name
                     %span.badge.badge-light= 0
               - elsif key == 1
                 %p
                 #beginner_at.text-muted= t("beginner_at")
                 - levels_grouped.each do |level|
-                  %button.btn.btn-success{:type => "badge"}
+                  %button.btn.btn-sm.btn-success{:type => "badge"}
                     = level.technology.name
                     %span.badge.badge-light= 1
               - elsif key == 2
                 %p
                 #good_at.text-muted= t("good_at")
                 - levels_grouped.each do |level|
-                  %button.btn.btn-warning{:type => "badge"}
+                  %button.btn.btn-sm.btn-warning{:type => "badge"}
                     = level.technology.name
                     %span.badge.badge-light= 2
               - else
                 %p
                 #master_at.text-muted= t("master_at")
                 - levels_grouped.each do |level|
-                  %button.btn.btn-danger{:type => "badge"}
+                  %button.btn.btn-sm.btn-danger{:type => "badge"}
                     = level.technology.name
                     %span.badge.badge-light= 3
           - else
@@ -51,7 +51,7 @@
           %p
           #languages.text-muted= t("languages")
           - @user.languages.each do |language|
-            %button.btn.btn-success{:type => "badge"}
+            %button.btn.btn-sm.btn-success{:type => "badge"}
               = language.name
           %p
           .text-muted E-mail:
@@ -60,28 +60,27 @@
           %h6.card-subtitle.mb-2.text-muted
           #description.text-muted= t("description")
           %p.card-text= @user.description
-          %p
-          #opinions.text-muted= t("opinions")
-          %p
-          - if current_user
-            %h5= button_to t("add_opinion"), new_user_opinion_path(@user), class: "btn btn-primary btn-lg", method: "get"
-          %p
-          - @user.received_opinions.each do |opinion|
-            .card
-              .card-header
-                - if opinion.rating <= 2
-                  %button.btn.btn-danger.btn-sm{:type => "badge"}= opinion.rating
-                - elsif opinion.rating >= 4.5
-                  %button.btn.btn-success.btn-sm{:type => "badge"}= opinion.rating
-                - else
-                  %button.btn.btn-warning.btn-sm{:type => "badge"}= opinion.rating
-                %small.text-muted rating by:
-                %strong= link_to @user.find_author_name(opinion.author_id).fullname, user_path(opinion.author_id)
-                %small.text-muted.right= opinion.created_at.strftime("%Y-%m-%d, %H:%M")
-              .card-body
-                = opinion.content
-              - if current_user == opinion.author
-                .btn-group.btn
-                  = button_to t("edit"), edit_user_opinion_path(@user, opinion), class: "btn btn-secondary mx-2", method: "get"
-                  = button_to t("delete"), user_opinion_path(@user, opinion), method: :delete, data: { confirm: t("confirmation") }, class: "btn btn-danger mx-2"
-                %p
+
+          .opinions
+            - if current_user
+              %h5.text-center= button_to t("add_opinion"), new_user_opinion_path(@user), class: "btn btn-outline-primary btn-lg", method: "get"
+            %h3#opinions.text-muted= t("opinions")
+            - @user.received_opinions.each do |opinion|
+              .card
+                .card-header
+                  - if opinion.rating <= 2
+                    %button.btn.btn-danger.btn-sm{:type => "badge"}= opinion.rating
+                  - elsif opinion.rating >= 4.5
+                    %button.btn.btn-success.btn-sm{:type => "badge"}= opinion.rating
+                  - else
+                    %button.btn.btn-warning.btn-sm{:type => "badge"}= opinion.rating
+                  %small.text-muted rating by:
+                  %strong= link_to @user.find_author_name(opinion.author_id).fullname, user_path(opinion.author_id)
+                  %small.text-muted.right= opinion.created_at.strftime("%Y-%m-%d, %H:%M")
+                .card-body
+                  = opinion.content
+                - if current_user == opinion.author
+                  .btn-group.btn
+                    = button_to t("edit"), edit_user_opinion_path(@user, opinion), class: "btn btn-secondary mx-2", method: "get"
+                    = button_to t("delete"), user_opinion_path(@user, opinion), method: :delete, data: { confirm: t("confirmation") }, class: "btn btn-danger mx-2"
+                  %p
