@@ -77,7 +77,7 @@ Opinion.all.destroy_all
 all_users = User.all
 all_users.each do |user|
   authors = all_users.reject { |author| author.id == user.id }
-  authors.sample(rand(0..7)).each do |author|
+  authors.sample(rand(2..7)).each do |author|
     user.received_opinions.create(
       rating: rand(1..5),
       content: Faker::Lorem.paragraph(rand(10..15)),
