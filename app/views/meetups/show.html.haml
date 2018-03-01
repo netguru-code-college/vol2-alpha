@@ -7,7 +7,7 @@
     .card-body
       %p= @meetup.description
       %h4 Organized by:
-      = link_to @meetup.author.fullname, user_path(@meetup.author)
+      = link_to @meetup.author.decorate.fullname, user_path(@meetup.author)
       %h5 Date and time:
       %span= @meetup.date.strftime("%Y-%m-%d at %H:%M")
       %h5 Meetup technology:

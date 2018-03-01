@@ -2,9 +2,9 @@ class MeetupsController < ApplicationController
   def index
     @technology_names = Technology.all.pluck(:name).sort
     @meetups = if params[:query]
-                 Meetup.includes(:technology).where(technologies: { name: params[:query] })
+                 Meetup.queried(params[:query]).decorate
                else
-                 Meetup.all
+                 Meetup.all.decorate
                end
     @hash = Gmaps4rails.build_markers(@meetups) do |meetup, marker|
       marker.lat meetup.lat
@@ -14,7 +14,7 @@ class MeetupsController < ApplicationController
   end
 
   def show
-    @meetup = Meetup.find(params[:id])
+    @meetup = Meetup.find(params[:id]).decorate
 
     @hash = Gmaps4rails.build_markers(@meetup) do |meetup, marker|
       marker.lat meetup.lat

@@ -53,18 +53,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def fullname
-    "#{first_name} #{last_name}"
-  end
-
-  def find_author_name(author_id)
-    User.find(author_id)
-  end
-
   def average_rating
     avg = 0
     ratings = received_opinions.pluck(:rating)
     avg = ratings.sum / ratings.size.to_f if ratings.size > 0
     avg.round(2)
+  end
+
+  def self.top
+    all.sort_by(&:average_rating).last(30).reverse
   end
 end
