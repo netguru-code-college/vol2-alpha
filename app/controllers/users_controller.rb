@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show]
 
   def top
-    @users = User.top
+    @users = UserDecorator.decorate_collection(User.top)
   end
 
   def search
@@ -27,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).decorate
   end
 end
