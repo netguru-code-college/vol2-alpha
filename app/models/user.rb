@@ -62,8 +62,9 @@ class User < ApplicationRecord
   end
 
   def average_rating
+    avg = 0
     ratings = received_opinions.pluck(:rating)
-    avg = ratings.sum / ratings.size.to_f
+    avg = ratings.sum / ratings.size.to_f if ratings.size > 0
     avg.round(2)
   end
 end
