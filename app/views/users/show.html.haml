@@ -14,7 +14,7 @@
             %button.btn.btn-sm.btn-success{:type => "badge"}= @user.average_rating
           - else
             %button.btn.btn-sm.btn-warning{:type => "badge"}= 0
-          %br
+          %p
           %h4#technologies.text-muted= t("technologies")
           - if @technologies.any?
             - @user.levels.group_by(&:level).each do |key, levels_grouped|
@@ -62,7 +62,7 @@
           %p.card-text= @user.description
 
           .opinions
-            - if current_user
+            - if current_user != @user
               %h5.text-center= button_to t("add_opinion"), new_user_opinion_path(@user), class: "btn btn-outline-primary btn-lg", method: "get"
             %h3#opinions.text-muted= t("opinions")
             - @user.received_opinions.each do |opinion|
