@@ -16,7 +16,7 @@
       - @meetups.each_with_index do |meetup, i|
         %tr
           %th{:scope => "row"}= i+1
-          %td= meetup.title
+          %td= link_to meetup.title, meetup_path(meetup)
           %td= meetup.description
           %td= meetup.date.strftime("%Y-%m-%d at %H:%M")
           %td= link_to meetup.technology.name, meetups_path(query: meetup.technology.name), class: "badge badge-danger"

@@ -12,4 +12,14 @@ class MeetupsController < ApplicationController
       marker.infowindow meetup.info_html_text
     end
   end
+
+  def show
+    @meetup = Meetup.find(params[:id])
+
+    @hash = Gmaps4rails.build_markers(@meetup) do |meetup, marker|
+      marker.lat meetup.lat
+      marker.lng meetup.lng
+      marker.infowindow meetup.info_html_text
+    end
+  end
 end

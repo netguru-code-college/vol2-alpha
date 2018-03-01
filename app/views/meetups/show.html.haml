@@ -1,0 +1,17 @@
+.container.form-wrapper
+  %div
+    #map{:style => "height: 400px;"}
+  .card
+    .card-header
+      %h3= @meetup.title
+    .card-body
+      %p= @meetup.description
+      %h4 Organized by:
+      = link_to @meetup.author.fullname, user_path(@meetup.author)
+      %h5 Date and time:
+      %span= @meetup.date.strftime("%Y-%m-%d at %H:%M")
+      %h5 Meetup technology:
+      = link_to @meetup.technology.name, meetups_path(query: @meetup.technology.name)
+      %h5 Event human language:
+      %span= @meetup.language.name
+= render partial: "gmap"
