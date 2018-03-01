@@ -1,4 +1,5 @@
 class OpinionsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
     @user = User.find(params[:user_id])
     @opinion = current_user.written_opinions.new(user: @user)

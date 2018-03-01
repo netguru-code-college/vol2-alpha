@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit]
 
   def top
     @users = User.all.sort_by(&:average_rating).last(30).reverse
