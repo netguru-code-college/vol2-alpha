@@ -2,7 +2,7 @@ class MeetupsController < ApplicationController
   def index
     @technology_names = Technology.all.pluck(:name).sort
     @meetups = if params[:query]
-                 Meetup.includes(:technology).where(technologies: { name: params[:query] })
+                 Meetup.queried(params[:query])
                else
                  Meetup.all
                end
