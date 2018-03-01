@@ -32,4 +32,4 @@ Our tests are ran on the **rspec** gem, use `bundle exec rspec` in the console t
 
 ### Code style
 
-The project is checked by **Rubocop**. Make it sure it passes the tests, I guess.
+The project is checked by **Rubocop**. Make sure it passes the tests, I guess.
