@@ -4,4 +4,5 @@
     markers = map.addMarkers(#{raw @hash.to_json});
     map.bounds.extendWith(markers);
     map.fitMapToBounds();
+    map.getMap().setZoom(2);
   });
