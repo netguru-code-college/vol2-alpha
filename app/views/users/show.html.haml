@@ -59,6 +59,9 @@
                     %p
                       .text-muted E-mail:
                       = @user.email
+                    %p
+                      .text-muted Location:
+                      = @user.location
                 .col
                   = image_tag gravatar_url(@user.email), alt: "Icon", size: '360x360'
 
