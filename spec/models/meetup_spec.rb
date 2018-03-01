@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Meetup, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:technology) }
+  it { should belong_to(:language) }
+  it { should belong_to(:author).with_foreign_key("author_id") }
 end
