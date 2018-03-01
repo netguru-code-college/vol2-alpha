@@ -1,5 +1,5 @@
 pl:
-  motto: "Find best technology mentors or boost your mentoring skills"
+  motto: "Znajdź swojego guru w dziedzinie IT lub rozwiń umiejętności mentorskie"
   search: "Szukaj"
   search_hint: "Szukaj JavaScript, React w Poznaniu ..."
   no_search_results: "Brak wyników"
@@ -39,3 +39,11 @@ pl:
   edit: "Edytuj"
   delete: "Usuń"
   confirmation: "Czy jesteś pewien?"
+  meetups: "Spotkania"
+  mentors: "Mentorzy"
+  about: "O nas"
+  profile: "Mój profil"
+  edit_profile: "Edytuj profil"
+  logout: "Wyloguj"
+  sign_up: "Rejestracja"
+  login: "Logowanie"

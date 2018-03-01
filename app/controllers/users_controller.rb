@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show]
+  before_action :authenticate_user!, only: [:edit]
 
   def top
     @users = UserDecorator.decorate_collection(User.top)

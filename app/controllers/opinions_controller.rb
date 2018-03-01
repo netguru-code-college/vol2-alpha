@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_opinion, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @opinion = current_user.written_opinions.new(user: @user)
