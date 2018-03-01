@@ -17,7 +17,7 @@ The application is built on **Ruby (v2.4.1)** on **Rails (v5.1.5)**. We use **Bo
 
 ## Tests
 
-Our tests are ran on the **rspec** gem, use `bundle exec rspec` in the console to run them locally. We also use **Rubocop** to enforce styling guidelines run that with `rubocop`. The repo is preconfigured to work with **Travis CI**.
+Our tests are ran on the **rspec** gem, use `bundle exec rspec` in the console to run them locally. We also use **Rubocop** to enforce styling guidelines; run that with `rubocop`. The repo is preconfigured to work with **Travis CI**.
 
 ## Steps to set up locally
 
