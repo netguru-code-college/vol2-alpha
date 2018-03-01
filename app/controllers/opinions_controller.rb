@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   def new
     @user = User.find(params[:user_id])
     @opinion = current_user.written_opinions.new(user: @user)
@@ -11,7 +11,7 @@ class OpinionsController < ApplicationController
     if @opinion.save
       redirect_to user_path(@user)
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -24,7 +24,7 @@ class OpinionsController < ApplicationController
     @user = User.find(params[:user_id])
     @opinion = Opinion.find(params[:id])
     if @opinion.update(opinion_params)
-      redirect_to @user, notice: 'Opinion was successfully updated.'
+      redirect_to @user, notice: "Opinion was successfully updated."
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class OpinionsController < ApplicationController
     @user = User.find(params[:user_id])
     @opinion = Opinion.find(params[:id])
     @opinion.destroy
-    redirect_to @user, notice: 'Opinion was successfully destroyed.'
+    redirect_to @user, notice: "Opinion was successfully destroyed."
   end
 
   private

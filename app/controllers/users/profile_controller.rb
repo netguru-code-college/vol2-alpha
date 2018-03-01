@@ -19,7 +19,7 @@ class Users::ProfileController < ApplicationController
         level.level = params["levels"][level.id.to_s]
         level.save
       end
-      redirect_to root_path and return
+      redirect_to(root_path) && return
     end
     redirect_to wizard_path(steps.second, user_id: @user.id)
   end
@@ -29,8 +29,8 @@ class Users::ProfileController < ApplicationController
                                  technology_ids: [],
                                  language_ids: [],
                                  level_ids: [],
-                                 technologies_attributes: [:id, :name],
-                                 languages_attributes: [:id, :name],
-                                 levels_attributes: [:id, :level, :technology_id, :user_id])
+                                 technologies_attributes: %i[id name],
+                                 languages_attributes: %i[id name],
+                                 levels_attributes: %i[id level technology_id user_id])
   end
 end

@@ -27,12 +27,11 @@
 #
 
 class User < ApplicationRecord
-
   include Gravtastic
   is_gravtastic!
 
   include PgSearch
-  pg_search_scope :search, against: [:first_name, :last_name, :location],
+  pg_search_scope :search, against: %i[first_name last_name location],
                            associated_against: { technologies: [:name],
                                                  languages: [:name] },
                            using: { tsearch: { prefix: true,
@@ -64,7 +63,7 @@ class User < ApplicationRecord
   def average_rating
     avg = 0
     ratings = received_opinions.pluck(:rating)
-    avg = ratings.sum / ratings.size.to_f if ratings.size > 0
+    avg = ratings.sum / ratings.size.to_f unless ratings.empty?
     avg.round(2)
   end
 end
