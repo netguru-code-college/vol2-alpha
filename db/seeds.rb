@@ -77,11 +77,26 @@ Opinion.all.destroy_all
 all_users = User.all
 all_users.each do |user|
   authors = all_users.reject { |author| author.id == user.id }
-  authors.sample(rand(0..7)).each do |author|
+  authors.sample(rand(2..7)).each do |author|
     user.received_opinions.create(
       rating: rand(1..5),
       content: Faker::Lorem.paragraph(rand(10..15)),
       author_id: author.id
     )
   end
+end
+
+# Create meetups
+Meetup.all.destroy_all
+30.times do
+  Meetup.create(
+    title: "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.adjective} #{Faker::Hacker.adjective}",
+    description: Faker::Hacker.say_something_smart,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    date: Time.now + rand(-100..100).days + rand(1..300).minutes,
+    technology: available_technologies.sample,
+    language: available_languages.sample,
+    author: all_users.sample
+  )
 end

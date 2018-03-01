@@ -1,4 +1,3 @@
-%h5= t("want_to_learn")
+%h6= t("want_to_learn")
 - levels_grouped.each do |level|
-  = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-info", method: :post
-  %br
+  = button_to level.technology.name, root_path(query: level.technology.name), class: "btn btn-sm btn-info", method: :post

@@ -16,3 +16,4 @@ We're currently deployed on [Heroku](https://itutor-ncc.herokuapp.com/). The cur
 * `bundle install`
 * `cp config/database.yml.example config/database.yml` (extra for collaborators: type yes to overwrite your old file)
 * `rails db:setup` (this will create the database, load the schema and initialize it with the seed data)
+* Use sample from .env.development.example to set ENV variable `GMAP_KEY` to display Google maps

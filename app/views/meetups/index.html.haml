@@ -1,0 +1,26 @@
+.container.form-wrapper
+  %div
+    #map{:style => "height: 400px;"}
+  = render partial: "technologies"
+  %h1 Meetups
+  %table.table.table-striped
+    %thead
+      %tr
+        %th{:scope => "col"} #
+        %th{:scope => "col"} Title
+        %th{:scope => "col"} Description
+        %th{:scope => "col"} Date
+        %th{:scope => "col"} Technology
+        %th{:scope => "col"} Language
+    %tbody
+      - @meetups.each_with_index do |meetup, i|
+        %tr
+          %th{:scope => "row"}= i+1
+          %td= meetup.title
+          %td= meetup.description
+          %td= meetup.date.strftime("%Y-%m-%d at %H:%M")
+          %td= link_to meetup.technology.name, meetups_path(query: meetup.technology.name), class: "badge badge-danger"
+          %td= meetup.language.name
+          -# %td= link_to "Sign up", new_user_opinion_path(user), class: "badge badge-danger"
+          %td.text-muted= link_to "Sign up", "#", class: "badge badge-dark"
+= render partial: "gmap"

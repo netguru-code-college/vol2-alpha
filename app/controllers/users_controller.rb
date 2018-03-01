@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
+  def top
+    @users = User.all.sort_by(&:average_rating).last(30).reverse
   end
 
   def search
