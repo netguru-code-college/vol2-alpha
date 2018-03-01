@@ -39,3 +39,11 @@ en:
   edit: "Edit"
   delete: "Delete"
   confirmation: "Are you sure?"
+  meetups: "Meetups"
+  mentors: "Mentors"
+  about: "About"
+  profile: "My profile"
+  edit_profile: "Edit profile"
+  logout: "Logout"
+  sign_up: "Sign Up"
+  login: Login
