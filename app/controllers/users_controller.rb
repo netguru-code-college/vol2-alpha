@@ -23,6 +23,13 @@ class UsersController < ApplicationController
 
   def show
     @technologies = @user.technologies
+    @rating_color = if @user.rating < 2
+                      "danger"
+                    elsif @user.rating < 4.5
+                      "warning"
+                    else
+                      "success"
+                    end
   end
 
   private
