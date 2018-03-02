@@ -1,6 +1,10 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def rating
+    UserServices::AverageRating.new(object).call
+  end
+
   def fullname
     "#{object.first_name} #{object.last_name}"
   end
