@@ -12,4 +12,8 @@ class UserDecorator < Draper::Decorator
   def find_author_name(author_id)
     User.find(author_id).decorate
   end
+
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 end

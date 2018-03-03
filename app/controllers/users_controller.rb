@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @found_users = User.search(params[:query]).page(params[:page]).per(6) if params[:query].present?
+    @found_users = UserDecorator.decorate_collection(User.search(params[:query]).page(params[:page])) if params[:query].present?
 
     respond_to do |format|
       format.html
