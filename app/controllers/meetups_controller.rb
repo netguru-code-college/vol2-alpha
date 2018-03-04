@@ -6,17 +6,18 @@ class MeetupsController < ApplicationController
                else
                  Meetup.all.decorate
                end
-    @hash = Gmaps4rails.build_markers(@meetups) do |meetup, marker|
-      marker.lat meetup.lat
-      marker.lng meetup.lng
-      marker.infowindow meetup.info_html_text
-    end
+    @hash = build_map(@meetups)
   end
 
   def show
     @meetup = Meetup.find(params[:id]).decorate
+    @hash = build_map(@meetup)
+  end
 
-    @hash = Gmaps4rails.build_markers(@meetup) do |meetup, marker|
+  private
+
+  def build_map(map_elements)
+    Gmaps4rails.build_markers(map_elements) do |meetup, marker|
       marker.lat meetup.lat
       marker.lng meetup.lng
       marker.infowindow meetup.info_html_text

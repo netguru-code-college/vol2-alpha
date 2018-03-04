@@ -6,14 +6,7 @@
           %strong.card.bg-light.mb-3.card-header= @user.fullname
           %h5.card-title
           %span#rating.text-muted= t("rating")
-          - if UserServices::AverageRating.new(@user).call <= 2
-            %button.btn.btn-sm.btn-danger{:type => "badge"}= UserServices::AverageRating.new(@user).call
-          - elsif UserServices::AverageRating.new(@user).call > 2 && @user.average_rating < 4.5
-            %button.btn.btn-sm.btn-warning{:type => "badge"}= UserServices::AverageRating.new(@user).call
-          - elsif UserServices::AverageRating.new(@user).call >= 4.5
-            %button.btn.btn-sm.btn-success{:type => "badge"}= UserServices::AverageRating.new(@user).call
-          - else
-            %button.btn.btn-sm.btn-warning{:type => "badge"}= 0
+          %button.btn.btn-sm{type: "badge", class: "btn-#{@rating_color}"}= @user.rating
           %br
           %h4#technologies.text-muted= t("technologies")
           - if @technologies.any?

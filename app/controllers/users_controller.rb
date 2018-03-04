@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @found_users = User.search(params[:query]).page(params[:page]).per(6) if params[:query].present?
+    @found_users = UserDecorator.decorate_collection(User.search(params[:query]).page(params[:page])) if params[:query].present?
 
     respond_to do |format|
       format.html
@@ -23,6 +23,13 @@ class UsersController < ApplicationController
 
   def show
     @technologies = @user.technologies
+    @rating_color = if @user.rating < 2
+                      "danger"
+                    elsif @user.rating < 4.5
+                      "warning"
+                    else
+                      "success"
+                    end
   end
 
   private

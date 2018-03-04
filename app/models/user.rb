@@ -53,6 +53,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  paginates_per 6
+
   def average_rating
     avg = 0
     ratings = received_opinions.pluck(:rating)
